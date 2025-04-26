@@ -6,6 +6,11 @@ const { performance } = require("perf_hooks");
 const logger = require("../logger");
 
 jest.mock("fs");
+jest.mock("perf_hooks", () => ({
+  performance: {
+    now: jest.fn()
+  }
+}));
 
 describe("Logger middleware", () => {
   const mockNext = jest.fn();
@@ -54,9 +59,9 @@ describe("Logger middleware", () => {
     fs.accessSync.mockImplementation(() => {}); // Both directory and file exist
     fs.appendFileSync.mockImplementation(() => {});
 
-    jest.spyOn(performance, "now")
-      .mockImplementationOnce(() => mockStart)
-      .mockImplementationOnce(() => mockEnd);
+    performance.now
+      .mockReturnValueOnce(mockStart)
+      .mockReturnValueOnce(mockEnd);
 
     const middleware = logger();
     middleware(mockReq, {}, mockNext);
