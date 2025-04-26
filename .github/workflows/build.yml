@@ -18,3 +18,13 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: Practice-10
+          SONAR_PROJECT_NAME: Practice-10
+          SONAR_PROJECT_VERSION: 1.0
+          SONAR_SOURCES: src
+          SONAR_TESTS: src/test
+          SONAR_TEST_INCLUSIONS: src/test/**/*
+          SONAR_JAVASCRIPT_LCOV_REPORTPATHS: coverage/lcov.info
+          SONAR_COVERAGE_EXCLUSIONS: "src/test/**,**/__tests__/**"
+          SONAR_EXCLUSIONS: "node_modules/**,**/node_modules/**,**/*.min.js,**/*.bundle.js,src/test/**"
+          SONAR_SOURCE_ENCODING: UTF-8

@@ -3,7 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const { performance } = require("perf_hooks");
-const logger = require("./logger");
+const logger = require("../logger");
 
 jest.mock("fs");
 

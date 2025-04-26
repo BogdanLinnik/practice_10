@@ -58,6 +58,9 @@ services:
       SONAR_PROJECT_NAME: "Practice 10"
       SONAR_SOURCES: .
       SONAR_SOURCE_ENCODING: UTF-8
+    volumes:
+      - .:/usr/src
+    working_dir: /usr/src
     networks:
       - sonarnet
 
