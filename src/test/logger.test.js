@@ -49,18 +49,21 @@ describe("Logger middleware", () => {
   test("should append log to the log file", () => {
     const mockStart = 100;
     const mockEnd = 200;
+    const expectedPerf = mockEnd - mockStart;
 
     fs.accessSync.mockImplementation(() => {}); // Both directory and file exist
     fs.appendFileSync.mockImplementation(() => {});
 
-    jest.spyOn(performance, "now").mockImplementationOnce(() => mockStart).mockImplementationOnce(() => mockEnd);
+    jest.spyOn(performance, "now")
+      .mockImplementationOnce(() => mockStart)
+      .mockImplementationOnce(() => mockEnd);
 
     const middleware = logger();
     middleware(mockReq, {}, mockNext);
 
     expect(fs.appendFileSync).toHaveBeenCalledWith(
       expect.stringMatching(/-log$/),
-      expect.stringMatching(/GET \/test 100/)
+      expect.stringContaining(`GET /test ${expectedPerf}`)
     );
   });
 
