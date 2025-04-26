@@ -58,6 +58,9 @@ services:
       SONAR_PROJECT_NAME: "Practice 10"
       SONAR_SOURCES: .
       SONAR_SOURCE_ENCODING: UTF-8
+      # ESLint integration
+      SONAR_ESLINT_REPORT_PATHS: /usr/src/eslint-report.json
+      SONAR_JAVASCRIPT_ESLINT_REPORT_PATHS: /usr/src/eslint-report.json
     volumes:
       - .:/usr/src
     working_dir: /usr/src

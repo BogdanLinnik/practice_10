@@ -10,7 +10,7 @@
     "start": "cross-env NODE_ENV=production node src/index.js",
     "start:dev": "cross-env NODE_ENV=development nodemon src/index.js",
     "db-migration": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "lint": "eslint . --ext .js --format json --output-file eslint-report.json",
+    "lint": "eslint . --ext .js --format json --output-file /usr/src/eslint-report.json",
     "lint:fix": "eslint . --ext .js --fix",
     "test": "jest --coverage --coverageReporters=lcov --coverageReporters=text --coverageReporters=text-summary",
     "docker:start": "npm run db-migration && cross-env NODE_ENV=production node src/index.js"
