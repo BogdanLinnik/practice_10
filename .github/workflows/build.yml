@@ -56,3 +56,10 @@ jobs:
           SONAR_JAVASCRIPT_MAXLINES_FILE: 500
           # ESLint integration
           SONAR_ESLINT_REPORT_PATHS: eslint-report.json
+          # Additional SonarQube settings
+          SONAR_ANALYSIS_MODE: preview
+          SONAR_ISSUE_ASSIGNEE: false
+          SONAR_ISSUE_SEVERITY: info
+          SONAR_ISSUE_TYPE: code_smell
+          SONAR_ISSUE_EFFORT: 5
+          SONAR_ISSUE_TAGS: maintainability,readability,complexity
